@@ -71,9 +71,9 @@
         "id": "cea2b7e7b1432949",
         "type": "comment",
         "z": "aa93b0a911d0f92d",
-        "name": "Process and simulate UL Pump Journey",
+        "name": "Process and simulate Axon U Pump Journey",
         "info": "",
-        "x": 190,
+        "x": 210,
         "y": 400,
         "wires": []
     },

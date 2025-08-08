@@ -18,7 +18,7 @@
         "type": "mqtt-broker",
         "name": "",
         "broker": "mosquitto",
-        "port": "51042",
+        "port": "1883",
         "clientid": "",
         "autoConnect": true,
         "usetls": false,
