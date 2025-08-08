@@ -1,0 +1,52 @@
+version: "1.0"
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0.11
+    restart: always
+    ports:
+      - "51042:51042"
+    volumes:
+        - ./mosquitto:/mosquitto/config
+    networks:
+      - ul-network
+
+  # axon-u-calculator:
+  #   image: ${REGISTRY}/axon-u-calculator:${UI_VERSION}
+  #   restart: always
+  #   ports:
+  #     - "5173:5173"
+  #   networks:
+  #     - ul-network
+
+  # axon-u-middle:
+  #   image: ${REGISTRY}/axon-u-middle:${UI_VERSION}
+  #   restart: always
+  #   ports:
+  #     - "5174 :5174"
+  #   networks:
+  #     - ul-network
+  
+  # axon-u-footer:
+  #   image: ${REGISTRY}/axon-u-footer:${UI_VERSION}
+  #   restart: always
+  #   ports:
+  #     - "5175:5175"
+  #   networks:
+  #     - ul-network
+
+  node-red:
+    image: nodered/node-red:latest
+    restart: always
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node-red/data:/data         # Node-RED persistent data (includes settings & flows)
+      # - ./node-red/flows.json:/data/flows.json  # Your initial predefined flow
+    networks:
+      - ul-network  
+
+networks:
+  ul-network:
+    name: ul-network
+    driver: bridge
+  

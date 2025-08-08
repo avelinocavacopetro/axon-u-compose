@@ -1,0 +1,27 @@
+COMPOSE_PROJECT_NAME=pcs
+PCS_VERSION=latest                                              # é a versão dos serviços
+PCS_MANAGER_UI_VERSION=latest                                   # é a versão do pcs-manager-ui
+POS_MANAGER_VERSION=latest                                      # é a versão do pos-manager
+PULSE_POS_VERSION=latest                                        # é a versão do pulse-pos
+DEVICE_PROXY_VERSION=latest                                     # é a versão do device-proxy-pos
+NEURON_LITE_VERSION=1.1.0                                      # é a versao do neuron lite do marco p sondas neuron 1.5
+REGISTRY=851391542604.dkr.ecr.eu-central-1.amazonaws.com        # AWS 851391542604.dkr.ecr.eu-central-1.amazonaws.com ou Nexus 172.16.50.65 (Local Nexus ports docker-releases = 8082 , docker-snapshots = 8083 , docker-RC = 8084)
+MICROENV="docker,multitenant"                                   # -Dmicronaut.environments=docker,onsite
+# Services ENV VARS
+MARIADB_USER="awsuser"                                          # é a user da mariadb
+MARIADB_PASSWORD="devpasswd++"                                  # é a pass da mariadb
+MARIADB_ROOT_HOST="mariadb"                                     # é o nome do host do serviço do docker das mariadb, valor default = mariadb
+BD_IP="mariadb"
+INFLUXDB_HOST="influxdb"
+INFLUXDB_OPERATOR_TOKEN="Gkg3IzHhFlO5eufDPYK-rWQ16yXUDv9Jzr1EDxlOGjRPoW6eOPiRCUoi_FgOy_esHaRG0-RooE_TilJ5iGv5Ng=="
+MQTT_HOST="mosquitto"
+BD_HOST="mariadb"
+GATEWAY_HOST="api-gateway"
+LOYALTY_HOST="loyalty"
+AUTH_HOST="authentication"
+PARTY_HOST="party"
+PRODUCT_HOST="product"
+REPORT_HOST="report"
+SITE_HOST="site"
+TENANT_HOST="tenant"
+CONTENT_MANAGER_HOST="content-manager"
