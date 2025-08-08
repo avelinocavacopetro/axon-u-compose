@@ -1,13 +1,5 @@
 [
     {
-        "id": "db3671a418978239",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "aa93b0a911d0f92d",
         "type": "tab",
         "label": "UL SIMULATION",
@@ -25,14 +17,15 @@
         "id": "be30df5fe716aec9",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "172.16.50.32",
+        "broker": "localhost",
         "port": "51042",
-        "clientid": "node-red-32",
+        "clientid": "",
         "autoConnect": true,
         "usetls": false,
         "protocolVersion": "4",
         "keepalive": "60",
         "cleansession": true,
+        "autoUnsubscribe": true,
         "birthTopic": "",
         "birthQos": "0",
         "birthPayload": "",
@@ -47,33 +40,6 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
-    },
-    {
-        "id": "11350ced14a46c11",
-        "type": "inject",
-        "z": "db3671a418978239",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 480,
-        "y": 80,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "6abbf450488e7897",
