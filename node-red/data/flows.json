@@ -2,7 +2,7 @@
     {
         "id": "aa93b0a911d0f92d",
         "type": "tab",
-        "label": "UL SIMULATION",
+        "label": "U SIMULATION",
         "disabled": false,
         "info": "",
         "env": []
@@ -10,7 +10,7 @@
     {
         "id": "1ad42d366658274d",
         "type": "websocket-listener",
-        "path": "/ulProxy",
+        "path": "/uProxy",
         "wholemsg": "false"
     },
     {
@@ -71,9 +71,9 @@
         "id": "cea2b7e7b1432949",
         "type": "comment",
         "z": "aa93b0a911d0f92d",
-        "name": "Process and simulate UL Pump Journey",
+        "name": "Process and simulate Axon U Pump Journey",
         "info": "",
-        "x": 190,
+        "x": 210,
         "y": 400,
         "wires": []
     },

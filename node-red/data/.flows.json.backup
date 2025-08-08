@@ -2,7 +2,7 @@
     {
         "id": "aa93b0a911d0f92d",
         "type": "tab",
-        "label": "UL SIMULATION",
+        "label": "U SIMULATION",
         "disabled": false,
         "info": "",
         "env": []
@@ -10,14 +10,14 @@
     {
         "id": "1ad42d366658274d",
         "type": "websocket-listener",
-        "path": "/ulProxy",
+        "path": "/uProxy",
         "wholemsg": "false"
     },
     {
         "id": "be30df5fe716aec9",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "localhost",
+        "broker": "mosquitto",
         "port": "51042",
         "clientid": "",
         "autoConnect": true,

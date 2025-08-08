@@ -8,31 +8,31 @@ services:
     volumes:
         - ./mosquitto:/mosquitto/config
     networks:
-      - ul-network
+      - u-network
 
-  # axon-u-calculator:
-  #   image: ${REGISTRY}/axon-u-calculator:${UI_VERSION}
-  #   restart: always
-  #   ports:
-  #     - "5173:5173"
-  #   networks:
-  #     - ul-network
+  axon-u-calculator:
+    image: axon-u-calculator:latest
+    restart: always
+    ports:
+      - "5173:80"
+    networks:
+      - u-network
 
-  # axon-u-middle:
-  #   image: ${REGISTRY}/axon-u-middle:${UI_VERSION}
-  #   restart: always
-  #   ports:
-  #     - "5174 :5174"
-  #   networks:
-  #     - ul-network
+  axon-u-middle:
+    image: axon-u-middle:latest
+    restart: always
+    ports:
+      - "5174:80"
+    networks:
+      - u-network
   
-  # axon-u-footer:
-  #   image: ${REGISTRY}/axon-u-footer:${UI_VERSION}
-  #   restart: always
-  #   ports:
-  #     - "5175:5175"
-  #   networks:
-  #     - ul-network
+  axon-u-footer:
+    image: axon-u-footer:latest
+    restart: always
+    ports:
+      - "5175:80"
+    networks:
+      - u-network
 
   node-red:
     image: nodered/node-red:latest
@@ -43,10 +43,10 @@ services:
       - ./node-red/data:/data         # Node-RED persistent data (includes settings & flows)
       # - ./node-red/flows.json:/data/flows.json  # Your initial predefined flow
     networks:
-      - ul-network  
+      - u-network  
 
 networks:
-  ul-network:
-    name: ul-network
+  u-network:
+    name: u-network
     driver: bridge
   
