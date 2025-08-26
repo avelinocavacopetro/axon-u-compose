@@ -1327,7 +1327,6 @@
         "name": "link out 34",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 755,
@@ -1342,7 +1341,6 @@
         "mode": "link",
         "links": [
             "83c0acb60952c451",
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -1356,7 +1354,6 @@
         "name": "link out 36",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -1370,7 +1367,6 @@
         "name": "link out 37",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -1384,7 +1380,6 @@
         "name": "link out 38",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -1398,7 +1393,6 @@
         "name": "link out 39",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -1412,7 +1406,6 @@
         "name": "link out 41",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -1426,7 +1419,6 @@
         "name": "link out 43",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1575,
@@ -1440,7 +1432,6 @@
         "name": "link out 44",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -1454,8 +1445,7 @@
         "name": "link out 45",
         "mode": "link",
         "links": [
-            "83c0acb60952c451",
-            "056745fb787d6700"
+            "83c0acb60952c451"
         ],
         "x": 1935,
         "y": 1060,
@@ -1468,7 +1458,6 @@
         "name": "link out 46",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 2175,
@@ -1664,7 +1653,7 @@
         "type": "function",
         "z": "aa93b0a911d0f92d",
         "name": "confirmPayment",
-        "func": "if (flow.get(\"canceledPayment\") === true) {\n    flow.set(\"executedPayment\", false);\n    msg = null;\n} else {\n    const paymentMethod = flow.get(\"paymentMethod\");\n\n    switch (paymentMethod) {\n        case 'at_pump':\n            if (flow.get(\"selectedGrade\")){\n                // msg.payload = {\"command\": \"startFueling\", \"payload\": {\"message\": \"payment_approved\"}}\n                msg.payload = { \"screen\": \"fuelingScreen\", \"status\": \"liftNozzle\", \"payload\": { \"message\": \"payment_approved\"}}\n                flow.set(\"currentScreen\", \"fuelingScreen\");\n            } else {\n                msg.payload = {\"screen\": \"gradeScreen\", \"status\": \"paymentApproved\",\"payload\": {\"message\": \"payment_approved\"}}\n                flow.set(\"currentScreen\", \"gradeScreen\");\n            }\n            break;\n        case 'at_kiosk':\n            if (flow.get(\"selectedGrade\")) {\n                // msg.payload = {\"command\": \"startFueling\", \"payload\": {\"message\": \"start_refueling\"}}\n                msg.payload = { \"screen\": \"fuelingScreen\", \"status\": \"liftNozzle\", \"payload\": { \"message\": \"lift_nozzle\" } }\n                flow.set(\"currentScreen\", \"fuelingScreen\");\n            } else {\n                msg.payload = {\"screen\": \"gradeScreen\", \"status\": \"selectOption\"}\n                flow.set(\"currentScreen\", \"gradeScreen\");\n            }\n            break;\n        default:\n            break;\n    }\n}\n\nreturn msg;",
+        "func": "if (flow.get(\"canceledPayment\") === true) {\n    flow.set(\"executedPayment\", false);\n    msg = null;\n} else {\n    const paymentMethod = flow.get(\"paymentMethod\");\n\n    switch (paymentMethod) {\n        case 'at_pump':\n            if (flow.get(\"selectedGrade\")){\n                // msg.payload = {\"command\": \"startFueling\", \"payload\": {\"message\": \"payment_approved\"}}\n                msg.payload = { \"screen\": \"fuelingScreen\", \"status\": \"liftNozzle\", \"payload\": { \"message\": \"payment_approved\"}}\n                flow.set(\"currentScreen\", \"fuelingScreen\");\n            } else {\n                msg.payload = {\"screen\": \"gradeScreen\", \"status\": \"paymentApproved\",\"payload\": {\"message\": \"payment_approved\"}}\n                flow.set(\"currentScreen\", \"gradeScreen\");\n            }\n            break;\n        case 'at_kiosk':\n            if (flow.get(\"selectedGrade\")) {\n                // msg.payload = {\"command\": \"startFueling\", \"payload\": {\"message\": \"start_refueling\"}}\n                msg.payload = { \"screen\": \"fuelingScreen\", \"status\": \"liftNozzle\", \"payload\": { \"message\": \"lift_nozzle\" } }\n                flow.set(\"currentScreen\", \"fuelingScreen\");\n            } else {\n                msg.payload = {\"screen\": \"gradeScreen\", \"status\": \"selectOption\"}\n                flow.set(\"currentScreen\", \"gradeScreen\");\n            }\n            break;\n        default:\n            flow.set(\"paymentMethod\", \"at_pump\");\n            msg.payload = {\"screen\": \"gradeScreen\", \"status\": \"paymentApproved\",\"payload\": {\"message\": \"payment_approved\"}}\n            break;\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -1696,7 +1685,6 @@
         "name": "link out 47",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -1740,7 +1728,6 @@
         "name": "link out 48",
         "mode": "link",
         "links": [
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -2094,7 +2081,6 @@
         "mode": "link",
         "links": [
             "83c0acb60952c451",
-            "056745fb787d6700",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
