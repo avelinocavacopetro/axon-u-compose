@@ -309,8 +309,8 @@
         "type": "function",
         "z": "aa93b0a911d0f92d",
         "name": "startFueling",
-        "func": "msg.payload = {\n    \"screen\": \"fuelingScreen\", \n    \"status\": \"fuelingInProgress\",\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"0000000\",\n        \"volume\": \"0000000\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
-        "outputs": 1,
+        "func": "let msgToUserflow = {\n    \"payload\": {\n        \"screen\": \"fuelingScreen\",\n        \"status\": \"fuelingInProgress\",\n        \"payload\": {\n            \"grade\": flow.get(\"selectedGrade\")\n        }\n    }\n};\n\nmsg.payload = {\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"0000000\",\n        \"volume\": \"0000000\",\n    }\n};\n\n// msg.payload = {\n//     \"screen\": \"fuelingScreen\", \n//     \"status\": \"fuelingInProgress\",\n//     \"payload\": {\n//         \"grade\": flow.get(\"selectedGrade\"),\n//         \"amount\": \"0000000\",\n//         \"volume\": \"0000000\",\n//     }\n// }\n\nflow.set(\"currentScreen\", \"fuelingScreen\");\n\nnode.send([msgToUserflow, msg]);\n// return msg;",
+        "outputs": 2,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
@@ -322,6 +322,9 @@
             [
                 "951926167d21c47c",
                 "b87281a9c20773ad"
+            ],
+            [
+                "1edc7bb364a35c37"
             ]
         ]
     },
@@ -620,7 +623,7 @@
         "type": "function",
         "z": "aa93b0a911d0f92d",
         "name": "fueling \"\"",
-        "func": "msg.payload = {\n    \"screen\": \"fuelingScreen\", \n    \"status\": \"fuelingInProgress\",\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"\",\n        \"volume\": \"\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
+        "func": "msg.payload = {\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"\",\n        \"volume\": \"\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -666,7 +669,7 @@
         "type": "function",
         "z": "aa93b0a911d0f92d",
         "name": "fueling \"0000000\"",
-        "func": "msg.payload = {\n    \"screen\": \"fuelingScreen\", \n    \"status\": \"fuelingInProgress\",\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"0000000\",\n        \"volume\": \"0000000\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
+        "func": "msg.payload = {\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"0000000\",\n        \"volume\": \"0000000\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -712,7 +715,7 @@
         "type": "function",
         "z": "aa93b0a911d0f92d",
         "name": "fueling \"\"",
-        "func": "msg.payload = {\n    \"screen\": \"fuelingScreen\", \n    \"status\": \"fuelingInProgress\",\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"\",\n        \"volume\": \"\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
+        "func": "msg.payload = {\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"\",\n        \"volume\": \"\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -733,7 +736,7 @@
         "type": "function",
         "z": "aa93b0a911d0f92d",
         "name": "fueling \"0000000\"",
-        "func": "msg.payload = {\n    \"screen\": \"fuelingScreen\", \n    \"status\": \"fuelingInProgress\",\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"0000000\",\n        \"volume\": \"0000000\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
+        "func": "msg.payload = {\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"0000000\",\n        \"volume\": \"0000000\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -779,7 +782,7 @@
         "type": "function",
         "z": "aa93b0a911d0f92d",
         "name": "fueling \"\"",
-        "func": "msg.payload = {\n    \"screen\": \"fuelingScreen\", \n    \"status\": \"fuelingInProgress\",\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"\",\n        \"volume\": \"\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
+        "func": "msg.payload = {\n    \"payload\": {\n        \"grade\": flow.get(\"selectedGrade\"),\n        \"amount\": \"\",\n        \"volume\": \"\",\n    }\n}\nflow.set(\"currentScreen\", \"fuelingScreen\");\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -825,8 +828,9 @@
         "type": "function",
         "z": "aa93b0a911d0f92d",
         "name": "loop",
-        "func": "let total = 100; // número de iterações\nlet delay = 100; // milissegundos (0.2 segundos)\nlet pricePerUnit = 1.80; // €/litro ou €/galão\nlet volumeStep = 0.4; // quanto aumenta em cada passo\n\nfor (let i = 1; i <= total; i++) {\n    (function (index) {\n        setTimeout(function () {\n            let volume = (index * volumeStep);\n            let amount = (volume * pricePerUnit);\n\n            let msgOut = {\n                payload: {\n                    screen: \"fuelingScreen\",\n                    status: \"fuelingInProgress\",\n                    payload: {\n                        grade: flow.get(\"selectedGrade\"),\n                        amount: amount.toFixed(2),\n                        volume: volume.toFixed(3)\n                    }\n                }\n            };\n\n            // Se for a última iteração, envia msgOut para saída 1 e outra mensagem especial para saída 2\n            if (index === total) {\n                let finalMsg = {\n                    payload: {\n                        command: \"completeFueling\"\n                    }\n                };\n                node.send([msgOut, finalMsg]);\n            } else {\n                // só envia para a saída 1\n                node.send([msgOut, null]);\n            }\n\n        }, index * delay);\n    })(i);\n}\n\nreturn null; \n// return msg;",
+        "func": "let total = 100; // número de iterações\nlet delay = 100; // milissegundos (0.2 segundos)\nlet pricePerUnit = 1.80; // €/litro ou €/galão\nlet volumeStep = 0.4; // quanto aumenta em cada passo\n\nfor (let i = 1; i <= total; i++) {\n    (function (index) {\n        setTimeout(function () {\n            let volume = (index * volumeStep);\n            let amount = (volume * pricePerUnit);\n\n            let msgOut = {\n                payload: {\n                    // screen: \"fuelingScreen\",\n                    // status: \"fuelingInProgress\",\n                    payload: {\n                        grade: flow.get(\"selectedGrade\"),\n                        amount: amount.toFixed(2),\n                        volume: volume.toFixed(3)\n                    }\n                }\n            };\n\n            // Se for a última iteração, envia msgOut para saída 1 e outra mensagem especial para saída 2\n            if (index === total) {\n                let finalMsg = {\n                    payload: {\n                        command: \"completeFueling\"\n                    }\n                };\n                node.send([msgOut, finalMsg]);\n            } else {\n                // só envia para a saída 1\n                node.send([msgOut, null]);\n            }\n\n        }, index * delay);\n    })(i);\n}\n\nreturn null; \n// return msg;",
         "outputs": 2,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -876,7 +880,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 90,
-        "y": 920,
+        "y": 980,
         "wires": [
             [
                 "d8a02818540cbe02",
@@ -899,7 +903,7 @@
         "expiry": "",
         "broker": "be30df5fe716aec9",
         "x": 290,
-        "y": 1220,
+        "y": 1280,
         "wires": []
     },
     {
@@ -924,7 +928,7 @@
         "payload": "\"diesel\"",
         "payloadType": "str",
         "x": 110,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             [
                 "1331ef883d726a27"
@@ -953,7 +957,7 @@
         "payload": "\"regular\"",
         "payloadType": "str",
         "x": 120,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "1331ef883d726a27"
@@ -982,7 +986,7 @@
         "payload": "\"premium\"",
         "payloadType": "str",
         "x": 120,
-        "y": 1300,
+        "y": 1360,
         "wires": [
             [
                 "1331ef883d726a27"
@@ -1011,7 +1015,7 @@
         "payload": "\"supreme\"",
         "payloadType": "str",
         "x": 120,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "1331ef883d726a27"
@@ -1040,7 +1044,7 @@
         "payload": "[{\"id\":1,\"name\":\"Diesel\",\"price\":1.45},{\"id\":2,\"name\":\"regular\",\"price\":1.65},{\"id\":3,\"name\":\"premium\",\"price\":1.78},{\"id\":\"4\",\"name\":\"supreme\",\"price\":1.89}]",
         "payloadType": "json",
         "x": 120,
-        "y": 1120,
+        "y": 1180,
         "wires": [
             [
                 "7d6f4d4ef338aed7"
@@ -1062,7 +1066,7 @@
         "expiry": "",
         "broker": "be30df5fe716aec9",
         "x": 320,
-        "y": 1120,
+        "y": 1180,
         "wires": []
     },
     {
@@ -1163,7 +1167,7 @@
         "expiry": "",
         "broker": "be30df5fe716aec9",
         "x": 750,
-        "y": 1460,
+        "y": 1360,
         "wires": []
     },
     {
@@ -1188,7 +1192,7 @@
         "payload": "\"pt\"",
         "payloadType": "str",
         "x": 530,
-        "y": 1460,
+        "y": 1360,
         "wires": [
             [
                 "7e12566930521cbd"
@@ -1217,7 +1221,7 @@
         "payload": "\"en\"",
         "payloadType": "str",
         "x": 530,
-        "y": 1500,
+        "y": 1400,
         "wires": [
             [
                 "7e12566930521cbd"
@@ -1246,7 +1250,7 @@
         "payload": "\"es\"",
         "payloadType": "str",
         "x": 530,
-        "y": 1540,
+        "y": 1440,
         "wires": [
             [
                 "7e12566930521cbd"
@@ -1275,7 +1279,7 @@
         "payload": "\"fr\"",
         "payloadType": "str",
         "x": 530,
-        "y": 1580,
+        "y": 1480,
         "wires": [
             [
                 "7e12566930521cbd"
@@ -1307,12 +1311,8 @@
         "type": "link in",
         "z": "aa93b0a911d0f92d",
         "name": "link in 9",
-        "links": [
-            "acfe891a44feaf85",
-            "b87281a9c20773ad",
-            "d796240084285f5b"
-        ],
-        "x": 2015,
+        "links": [],
+        "x": 2055,
         "y": 1060,
         "wires": [
             [
@@ -1340,7 +1340,6 @@
         "name": "link out 35",
         "mode": "link",
         "links": [
-            "83c0acb60952c451",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
@@ -1445,7 +1444,7 @@
         "name": "link out 45",
         "mode": "link",
         "links": [
-            "83c0acb60952c451"
+            "617f8a2e9b4b1513"
         ],
         "x": 1935,
         "y": 1060,
@@ -1498,7 +1497,7 @@
         "name": "lift nozzle",
         "info": "",
         "x": 100,
-        "y": 1180,
+        "y": 1240,
         "wires": []
     },
     {
@@ -1508,7 +1507,7 @@
         "name": "change language",
         "info": "",
         "x": 540,
-        "y": 1420,
+        "y": 1320,
         "wires": []
     },
     {
@@ -1518,7 +1517,7 @@
         "name": "grades list",
         "info": "",
         "x": 100,
-        "y": 1080,
+        "y": 1140,
         "wires": []
     },
     {
@@ -1528,7 +1527,7 @@
         "name": "execute payment",
         "info": "",
         "x": 540,
-        "y": 1180,
+        "y": 1140,
         "wires": []
     },
     {
@@ -1553,7 +1552,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 530,
-        "y": 1220,
+        "y": 1180,
         "wires": [
             [
                 "5f4ffa3c6b5ee50b"
@@ -1574,7 +1573,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 100,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "d8a02818540cbe02",
@@ -1597,7 +1596,7 @@
         "expiry": "",
         "broker": "be30df5fe716aec9",
         "x": 720,
-        "y": 1220,
+        "y": 1180,
         "wires": []
     },
     {
@@ -1622,7 +1621,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 530,
-        "y": 1260,
+        "y": 1220,
         "wires": [
             [
                 "5f4ffa3c6b5ee50b"
@@ -1741,7 +1740,7 @@
         "name": "toggle language",
         "info": "",
         "x": 120,
-        "y": 1420,
+        "y": 1480,
         "wires": []
     },
     {
@@ -1766,7 +1765,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 110,
-        "y": 1460,
+        "y": 1520,
         "wires": [
             [
                 "2765ddf962714957"
@@ -1788,7 +1787,7 @@
         "expiry": "",
         "broker": "be30df5fe716aec9",
         "x": 320,
-        "y": 1460,
+        "y": 1520,
         "wires": []
     },
     {
@@ -1813,7 +1812,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 110,
-        "y": 1500,
+        "y": 1560,
         "wires": [
             [
                 "2765ddf962714957"
@@ -1848,7 +1847,7 @@
         "name": "toggle accessibility",
         "info": "",
         "x": 130,
-        "y": 1580,
+        "y": 1640,
         "wires": []
     },
     {
@@ -1873,7 +1872,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 110,
-        "y": 1620,
+        "y": 1680,
         "wires": [
             [
                 "624eb62f85c1693b"
@@ -1895,7 +1894,7 @@
         "expiry": "",
         "broker": "be30df5fe716aec9",
         "x": 310,
-        "y": 1620,
+        "y": 1680,
         "wires": []
     },
     {
@@ -1920,7 +1919,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 110,
-        "y": 1660,
+        "y": 1720,
         "wires": [
             [
                 "624eb62f85c1693b"
@@ -1982,7 +1981,7 @@
         "type": "function",
         "z": "aa93b0a911d0f92d",
         "name": "initialize variables",
-        "func": "flow.set(\"currentScreen\", null);\nflow.set(\"selectedGrade\", null);\nflow.set(\"paymentMethod\", null);\nflow.set(\"executedPayment\", false);\nflow.set(\"canceledPayment\", false);\n\n// debug to confirm\nnode.warn(\"Flow variables initialized.\");\n\nreturn null; // We don't need to pass anything forward\n// return msg;",
+        "func": "flow.set(\"currentScreen\", null);\nflow.set(\"selectedGrade\", null);\nflow.set(\"paymentMethod\", null);\nflow.set(\"executedPayment\", false);\nflow.set(\"canceledPayment\", false);\nflow.set(\"calculatorData\", { \"payload\": { \"grade\": flow.get(\"selectedGrade\"), \"amount\": \"-------\", \"volume\": \"-------\" }});\n\n// debug to confirm\nnode.warn(\"Flow variables initialized.\");\n\nreturn null; // We don't need to pass anything forward\n// return msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -2019,8 +2018,8 @@
         "correl": "",
         "expiry": "",
         "broker": "be30df5fe716aec9",
-        "x": 2020,
-        "y": 540,
+        "x": 2100,
+        "y": 840,
         "wires": []
     },
     {
@@ -2065,8 +2064,8 @@
             "002c049840cf7676",
             "b87281a9c20773ad"
         ],
-        "x": 1855,
-        "y": 540,
+        "x": 1935,
+        "y": 840,
         "wires": [
             [
                 "e2b71f476e83e072"
@@ -2080,11 +2079,214 @@
         "name": "link out 40",
         "mode": "link",
         "links": [
-            "83c0acb60952c451",
             "6b691e51cf49a9ff"
         ],
         "x": 1245,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "45f28745710e9bf3",
+        "type": "comment",
+        "z": "aa93b0a911d0f92d",
+        "name": "toggle theme",
+        "info": "",
+        "x": 530,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "766e90142645cc53",
+        "type": "inject",
+        "z": "aa93b0a911d0f92d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "dark",
+        "payloadType": "str",
+        "x": 530,
+        "y": 1680,
+        "wires": [
+            [
+                "d6ecf02e73f5a21a"
+            ]
+        ]
+    },
+    {
+        "id": "d6ecf02e73f5a21a",
+        "type": "mqtt out",
+        "z": "aa93b0a911d0f92d",
+        "name": "",
+        "topic": "theme",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "be30df5fe716aec9",
+        "x": 710,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "928526ccc92e7d7a",
+        "type": "inject",
+        "z": "aa93b0a911d0f92d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "light",
+        "payloadType": "str",
+        "x": 530,
+        "y": 1720,
+        "wires": [
+            [
+                "d6ecf02e73f5a21a"
+            ]
+        ]
+    },
+    {
+        "id": "feedb045913c7e94",
+        "type": "mqtt in",
+        "z": "aa93b0a911d0f92d",
+        "name": "",
+        "topic": "theme",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "be30df5fe716aec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 920,
+        "wires": [
+            [
+                "24876888d3d55db5"
+            ]
+        ]
+    },
+    {
+        "id": "5272afd71d6d9cc4",
+        "type": "function",
+        "z": "aa93b0a911d0f92d",
+        "name": "Get Calculator Data",
+        "func": "msg.payload = flow.get(\"calculatorData\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
         "y": 980,
+        "wires": [
+            [
+                "fb8472950beb15b0"
+            ]
+        ]
+    },
+    {
+        "id": "dd83b2d08068aa43",
+        "type": "inject",
+        "z": "aa93b0a911d0f92d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.25",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 2010,
+        "y": 980,
+        "wires": [
+            [
+                "5272afd71d6d9cc4"
+            ]
+        ]
+    },
+    {
+        "id": "9efafb1893978c68",
+        "type": "function",
+        "z": "aa93b0a911d0f92d",
+        "name": "Set Calculator Data",
+        "func": "flow.set(\"calculatorData\", msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2210,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "617f8a2e9b4b1513",
+        "type": "link in",
+        "z": "aa93b0a911d0f92d",
+        "name": "link in 2",
+        "links": [
+            "d796240084285f5b",
+            "1edc7bb364a35c37"
+        ],
+        "x": 1935,
+        "y": 920,
+        "wires": [
+            [
+                "9efafb1893978c68"
+            ]
+        ]
+    },
+    {
+        "id": "1edc7bb364a35c37",
+        "type": "link out",
+        "z": "aa93b0a911d0f92d",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "617f8a2e9b4b1513"
+        ],
+        "x": 1245,
+        "y": 1000,
         "wires": []
     }
 ]
